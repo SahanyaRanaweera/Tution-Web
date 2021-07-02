@@ -17,7 +17,7 @@
 		$_SESSION['user']='';
 	$sql1="SELECT * FROM user where username='$user'";
 	$result1=$con->query($sql1);
-	if(mysqli_num_rows($result1) > 0){
+	if($result1->num_rows>0){
 		$_SESSION['error']='Username already exists';
 		header("Location:student register.php");		
 
@@ -26,7 +26,7 @@
 		$sql2= "INSERT INTO user (id,username,password)VALUES('','$user','$pwrd')";
 		$sql3= "INSERT INTO student (student_No, student_fname, student_lname, gender, student_email, student_phone, username) VALUES ('','$fname', '$lname', '$gender', '$email', '$phone', '$user')";
 		
-        if(query($con, $sql2) && query($con, $sql3)){
+        if(mysqli_query($con, $sql2) && mysqli_query($con, $sql3)){
             $_SESSION['user']=$fname." ".$lname;
             header("Location:dashboard student.php");
         }
