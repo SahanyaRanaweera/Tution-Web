@@ -8,3 +8,4 @@ Please note that for the web application to work properly two folders called upl
   <li>-upload_payment</li>
   <li>-uploads</li>
  </ul> 
+SQL script added - tutiondb.sql
